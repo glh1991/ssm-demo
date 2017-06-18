@@ -12,4 +12,9 @@
 		select * from T_USERS where ID = #{id} limit 1
 	</select>
 
+	<update id="updateUser">
+		UPDATE T_USERS SET NAME = #{name}
+		WHEN ID = #{id}
+	</update>
+
 </mapper>

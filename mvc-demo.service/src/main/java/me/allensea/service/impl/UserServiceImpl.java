@@ -17,4 +17,14 @@ public class UserServiceImpl implements UserService {
         return this.userDAO.loadUserById(id);
     }
 
+    @Override
+    public boolean updateUser(int id, String name) {
+        UserDo userDo = this.findUserById(id);
+        if (userDo == null)
+            return false;
+        userDo.setName(name);
+        this.userDAO.updateUser(userDo);
+        return true;
+    }
+
 }

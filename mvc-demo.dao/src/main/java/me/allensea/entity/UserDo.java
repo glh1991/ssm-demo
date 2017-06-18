@@ -24,4 +24,10 @@ public class UserDo implements Serializable {
         this.name = name;
     }
 
+    public UserDo() {}
+
+    public UserDo(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

@@ -5,12 +5,8 @@
 	xsi:schemaLocation="  
            http://www.springframework.org/schema/beans  
            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
-           http://www.springframework.org/schema/aop  
-           http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-           http://www.springframework.org/schema/context  
-           http://www.springframework.org/schema/context/spring-context-4.3.xsd
-           http://www.springframework.org/schema/tx 
-		   http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!-- 引入配置文件 -->
 	<bean id="propertyConfigurer"
@@ -70,8 +66,8 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+    <!-- 自动扫描注解的bean -->
+    <context:component-scan base-package="me.allensea.service" />
 
-	<!-- 自动扫描注解的bean -->
-	<context:component-scan base-package="me.allensea.service" />
 
 </beans>

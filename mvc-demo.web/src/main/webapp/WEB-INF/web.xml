@@ -12,7 +12,10 @@
 	<!-- 读取spring配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-config/application.xml</param-value>
+		<param-value>
+			classpath:spring-config/applicationContext-*.xml,
+			classpath:spring-config/application.xml
+		</param-value>
 	</context-param>
 	<!-- 设计路径变量值 -->
 	<context-param>
@@ -59,20 +62,4 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<!-- 错误跳转页面 -->
-	<error-page>
-		<!-- 路径不正确 -->
-		<error-code>404</error-code>
-		<location>/WEB-INF/errorpage/404.jsp</location>
-	</error-page>
-	<error-page>
-		<!-- 没有访问权限，访问被禁止 -->
-		<error-code>405</error-code>
-		<location>/WEB-INF/errorpage/405.jsp</location>
-	</error-page>
-	<error-page>
-		<!-- 内部错误 -->
-		<error-code>500</error-code>
-		<location>/WEB-INF/errorpage/500.jsp</location>
-	</error-page>
 </web-app>

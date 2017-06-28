@@ -1,5 +1,6 @@
 package me.allensea.controller;
 
+import me.allensea.controller.filter.PageFilter;
 import me.allensea.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,8 @@ public class UsersController {
 
     // show users by page
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public Object index(Integer pageNo) {
-        return null;
+    public Object index(Integer pageNo, Integer pageRow) {
+        return this.userService.findPageUsers();
     }
 
     @RequestMapping(value = "/users/show", method = RequestMethod.GET)

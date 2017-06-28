@@ -1,18 +1,23 @@
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="me.allensea.dao.UserDAO">
-	<cache type="org.mybatis.caches.ehcache.LoggingEhcache" readOnly="true" />
-	<resultMap type="me.allensea.entity.UserDo" id="USER_MAP">
-		<result column="id" property="id" jdbcType="INTEGER" />
-		<result column="name" property="name" jdbcType="VARCHAR" />
-	</resultMap>
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache" readOnly="true"/>
+    <resultMap type="me.allensea.entity.UserDo" id="USER_MAP">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
 
 
-	<select id="loadUserById" resultMap="USER_MAP">
+    <select id="loadUserById" resultMap="USER_MAP">
 		select * from T_USERS where ID = #{id} limit 1
 	</select>
 
-	<update id="updateUser">
+    <select id="findPageUsersByPage" resultMap="USER_MAP">
+		SELECT * from T_USERS
+	</select>
+
+    <update id="updateUser">
 		UPDATE T_USERS SET NAME = #{name}
 		WHEN ID = #{id}
 	</update>

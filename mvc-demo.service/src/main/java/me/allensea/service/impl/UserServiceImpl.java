@@ -7,6 +7,8 @@ import me.allensea.dao.UserDAO;
 import me.allensea.entity.UserDo;
 import me.allensea.service.UserService;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -15,6 +17,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDo findUserById(int id) {
         return this.userDAO.loadUserById(id);
+    }
+
+    @Override
+    public List<UserDo> findPageUsers() {
+        return this.userDAO.findPageUsersByPage();
     }
 
     @Override

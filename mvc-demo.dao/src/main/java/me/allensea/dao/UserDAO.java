@@ -4,6 +4,8 @@ import org.apache.ibatis.annotations.Param;
 
 import me.allensea.entity.UserDo;
 
+import java.util.List;
+
 public interface UserDAO {
 
     /**
@@ -12,6 +14,12 @@ public interface UserDAO {
      * @return
      */
     UserDo loadUserById(@Param("id") int id);
+
+    /**
+     * 分页获取用户
+     * @return
+     */
+    List<UserDo> findPageUsersByPage();
 
     /**
      * 更新用户

@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by allen on 17/6/29.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
+@ContextConfiguration(locations = { "classpath:/spring-config/applicationContext-dao-test.xml",
         "classpath:/spring-config/applicationContext-dao.xml",
         "classpath:/spring-config/mybatis-config.xml" })
 public class UserDaoTest {
